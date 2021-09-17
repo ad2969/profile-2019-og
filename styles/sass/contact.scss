@@ -1,0 +1,338 @@
+/******************************************************************************/
+/* Author: Clarence Adrian 																										*/
+/* File_Type: CSS Stylesheet for contact overlay															*/
+/* File_Name: contact.css   																						    	*/
+/******************************************************************************/
+/* COMMENT STYLES
+Obtained from: patorjk.com/software/taag/
+
+/*******************************************************************************
+   ____ ___  _   _ _____  _    ____ _____        ____ ____ ____
+ / ___/ _ \| \ | |_   _|/ \  / ___|_   _|      / ___/ ___/ ___|
+| |  | | | |  \| | | | / _ \| |     | |       | |   \___ \___ \
+| |__| |_| | |\  | | |/ ___ \ |___  | |    _  | |___ ___) |__) |
+ \____\___/|_| \_| |_/_/   \_\____| |_|   (_)  \____|____/____/
+
+*******************************************************************************/
+
+$pull-timing:1.5s;
+$push-timing:0.75s;
+$largefont-header:5vh;
+$largefont-caption:2.5vh;
+$tinyfont-header:4.5vh;
+$tinyfont-caption:2vh;
+
+/*		CONTACT PULL UP TAB (bottom left corner)
+*******************************************************************************/
+.contact-tab {
+  /* Placeholder for entire contact tab */
+  width: 100%;
+  height: 100%;
+  top: 0;
+  z-index: 4;
+  display: none;
+  overflow: hidden;
+  color: #fff;
+  position: fixed;
+  font-family: "PT Sans", sans-serif; }
+
+.contact-1, .contact-2, .contact-3 {
+  /* Box 1 - Contact Me and 2 - Link to Works */
+  width: 30%;
+  height: 100%;
+  position: fixed;
+  text-align: right;
+  visibility: hidden;
+  z-index: 4;
+  background-color: rgba(0, 0, 0, 0.97); }
+.contact-1 {
+  left: 0; }
+.contact-2 {
+  background-color: rgba(17, 17, 17, 0.97);
+  left: 30%; }
+.contact-3 {
+  left: 60%;
+  width: 40%; }
+
+.contact-1.active, .contact-1.hidden,
+.contact-2.active, .contact-2.hidden,
+.contact-3.active, .contact-3.hidden {
+  visibility: visible; }
+.contact-1.active, .contact-2.active, .contact-3.active {
+  animation: swipe-up $push-timing; }
+.contact-1.hidden, .contact-2.hidden, .contact-3.hidden {
+  animation: swipe-down $pull-timing; }
+.contact-2.hidden { animation-delay: 100ms; }
+.contact-3.hidden { animation-delay: 200ms; }
+
+.contact-3-img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  opacity: 0.97; }
+
+.contact-h1, .contact-h2, .contact-h3 {
+  /* Box Titles */
+  font-size: $largefont-header;
+  top: 30%;
+  right: 12%;
+  position: relative; }
+
+.contact-h3 {
+  top: 60%; }
+
+.contact-deets, .contact-h3-deets {
+  /* Box Title Information Details */
+  color: #fff;
+  float: right;
+  text-decoration: none;
+  font-size: $largefont-caption;
+  top: 30%;
+  right: 10%;
+  position: relative;
+  padding: 1%;
+  clear: right; }
+.contact-h3-deets {
+  top: 60%; }
+.contact-deets.logo {
+  clear: unset; }
+.contact-deets:hover, .contact-deets-img:hover {
+  transform: scale(1.08); }
+
+#contact-LI, #contact-git, #contact-codepen, #contact-twit {
+  height: $largefont-header;
+  width: $largefont-header;
+  padding-top: 3vh; }
+
+/*	CONTACT TAB BUTTONS
+********************************************************************************/
+.contact-button {
+  /* Placeholder for Contact Button */
+  position: fixed;
+  bottom: 5%;
+  left: 3%;
+  width: 3.5%;
+  height: 20%;
+  z-index: 5;
+  cursor: pointer; }
+
+.contact-button-img {
+  height: auto;
+  width: 100%; }
+
+.contact-button-img-holder {
+  height: 40%;
+  &:hover {
+    transform: scale(1.08); }}
+
+.close-contact-tab {
+  /* Placeholder (span) for Exit Contact Menu Button */
+  height: 20%;
+  padding-bottom: 10%;
+  &:hover {
+    transform: scale(1.08); }}
+
+.close-contact-tab-img {
+  /* Exit Contact Menu Button Arrows */
+  /**** Animation: pull-up/pull-down ****/
+  width: 60%;
+  left: 20%;
+  padding-bottom: 20%;
+  position: absolute;
+  visibility: hidden; }
+
+.close-contact-tab-img.active {
+  visibility: visible;
+  animation: swipe-up 0.5s, fade 0.5s; }
+
+.close-contact-tab-img.hidden {
+  visibility: visible;
+  animation: swipe-down 0.5s, fadeout 0.5s;
+  animation-delay: 50ms; }
+
+/*******************************************************************************
+     _    _   _ ___ __  __    _  _____ ___ ___  _   _ ____
+    / \  | \ | |_ _|  \/  |  / \|_   _|_ _/ _ \| \ | / ___|
+   / _ \ |  \| || || |\/| | / _ \ | |  | | | | |  \| \___ \
+  / ___ \| |\  || || |  | |/ ___ \| |  | | |_| | |\  |___) |
+ /_/   \_\_| \_|___|_|  |_/_/   \_\_| |___\___/|_| \_|____/
+
+	tag: animation section
+*******************************************************************************/
+@keyframes fade {
+  from { opacity: 0 }
+  to { opacity: 1 }}
+@keyframes fadeout {
+  from { opacity: 1 }
+  to { opacity: 0 }}
+@keyframes swipe-up {
+  from {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%); }
+  to {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); }}
+@keyframes swipe-down {
+  from {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1; }
+  50% {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+    opacity: 0; }
+  to {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+    opacity: 0; }}
+@keyframes swipe-right {
+  from {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%); }
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0); }}
+@keyframes swipe-left {
+  from {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1; }
+  50% {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+    opacity: 0; }}
+@keyframes swipe-right-r {
+  from {
+    -webkit-transform: rotate(90deg) translateY(100%);
+            transform: rotate(90deg) translateY(100%); }
+  to {
+    -webkit-transform: rotate(90deg) translateY(0);
+            transform: rotate(90deg) translateY(0); }}
+@keyframes swipe-left-r {
+  from {
+    -webkit-transform: rotate(90deg) translateY(0);
+            transform: rotate(90deg) translateY(0);
+    opacity: 1; }
+  50% {
+    -webkit-transform: rotate(90deg) translateY(100%);
+            transform: rotate(90deg) translateY(100%);
+    opacity: 0; }
+  to {
+    -webkit-transform: rotate(90deg) translateY(100%);
+            transform: rotate(90deg) translateY(100%);
+    opacity: 0; }}
+
+/*******************************************************************************
+____  _____ ____  ____   ___  _   _ ____ _____     _______
+|  _ \| ____/ ___||  _ \ / _ \| \ | / ___|_ _\ \   / / ____|
+| |_) |  _| \___ \| |_) | | | |  \| \___ \| | \ \ / /|  _|
+|  _ <| |___ ___) |  __/| |_| | |\  |___) | |  \ V / | |___
+|_| \_\_____|____/|_|    \___/|_| \_|____/___|  \_/  |_____|
+
+// tags: responsive
+********************************************************************************/
+/* Mobile Layout */
+@media only screen
+and (max-width: 800px)
+and (min-height: 501px) {
+  .contact-button {
+    left: 5%;
+    bottom: 3%;
+    width: 25%;
+    height: 6%;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end; }
+
+  .contact-button-img-holder {
+    height: 100%;
+    float: right;
+    padding-right: 5%;
+    position: unset; }
+
+  .contact-button-img {
+    height: 100%;
+    width: auto; }
+
+  .close-contact-tab {
+    /* Placeholder (span) for Exit Contact Menu Button */
+    height: 100%;
+    width: 20%;
+    padding-bottom: unset;
+    float: right;
+    &:hover {
+      transform: scale(1.08); }}
+
+  .close-contact-tab-img {
+    /* Exit Contact Menu Button Arrows */
+    /**** Animation: pull-up/pull-down ****/
+    height: 50%;
+    top: 25%;
+    width: auto;
+    left: unset;
+    padding-bottom: unset;
+    transform: rotate(90deg);
+    position: absolute;
+    visibility: hidden;
+    width: unset; }
+  .close-contact-tab-img.active {
+    visibility: visible;
+    animation: swipe-right-r 0.5s, fade 0.5s; }
+  .close-contact-tab-img.hidden {
+    visibility: visible;
+    animation: swipe-left-r 0.5s, fadeout 0.5s;
+    animation-delay: 50ms; }
+
+  .contact-1, .contact-2, .contact-3 {
+    width: 100%;
+    height: 30%;
+    left: unset;
+    position: fixed;
+    text-align: right;
+    visibility: hidden; }
+  .contact-1 { top: 0 }
+  .contact-2 { top: 30% }
+  .contact-3 {
+    height: 40%;
+    top: 60%; }
+
+  .contact-1.active, .contact-1.hidden,
+  .contact-2.active, .contact-2.hidden,
+  .contact-3.active, .contact-3.hidden {
+    visibility: visible; }
+  .contact-1.active, .contact-2.active, .contact-3.active { animation: swipe-right $push-timing }
+  .contact-1.hidden, .contact-2.hidden, .contact-3.hidden { animation: swipe-left $pull-timing }
+
+  .contact-2.hidden { animation-delay: 100ms }
+
+  .contact-3.hidden { animation-delay: 200ms }
+
+  .contact-h1, .contact-h2, .contact-h3 {
+    font-size: $tinyfont-header;
+    top: 10%;
+    right: 12%;
+    position: relative; }
+  .contact-h3 {
+    top: 20%; }
+
+  .contact-deets, .contact-deets-img, .contact-h3-deets {
+    font-size: $tinyfont-caption;
+    top: 7%;
+    right: 10%;
+    position: relative;
+    padding: 4px;
+    clear: right; }
+  .contact-h3-deets { top: 20% }
+
+  #contact-LI, #contact-git, #contact-twit, #contact-codepen {
+    max-height: $tinyfont-header;
+    max-width: $tinyfont-header; }
+}
+/* 2000px and onwards (4K Screens and all) */
+@media only screen and (min-width: 2000px) { }

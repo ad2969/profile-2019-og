@@ -1,0 +1,14 @@
+
+.cla-4 {
+  stroke-dasharray: 200;
+  animation: scifi-4-inf 5s infinite linear;
+	animation-play-state: running;
+}
+
+@for $i from 1 through 90 {
+  .cla-4 {
+    &:nth-child(#{$i}) {
+      animation-delay: random(500) * (10ms);
+    }
+  }
+}
